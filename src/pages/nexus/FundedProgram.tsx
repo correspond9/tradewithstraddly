@@ -39,7 +39,7 @@ const processSteps: Array<{
     step: 'Step 4',
     eyebrow: 'Funding Decision',
     title: 'Get Shortlisted For Funding',
-    text: 'Top candidates move forward to the TradingNexus funded trader shortlist.',
+    text: 'Top candidates move forward to the TradeWithStraddly funded trader shortlist.',
     graphic: 'funding',
   },
 ];
@@ -115,8 +115,8 @@ const FundedProgram: React.FC = () => {
       <div className="funded-container">
         <nav className="funded-nav">
           <div className="funded-logo-wrap">
-            {logo ? <img src={logo} alt="TradingNexus" className="funded-logo-img" /> : null}
-            <div className="funded-logo">TradingNexus</div>
+            {logo ? <img src={logo} alt="TradeWithStraddly" className="funded-logo-img" /> : null}
+            <div className="funded-logo">TradeWithStraddly</div>
           </div>
           <a href={SIGNUP_URL}>Sign Up</a>
         </nav>
@@ -127,10 +127,10 @@ const FundedProgram: React.FC = () => {
           </h1>
 
           <p>
-            TradingNexus is launching a unique opportunity for derivatives traders across India.
+            TradeWithStraddly is launching a unique opportunity for derivatives traders across India.
             Participate in our <span className="funded-gradient">Free 2-Day Derivatives Crash Course</span> where your trading
             knowledge and discipline will be evaluated. Top performers may receive the opportunity
-            to trade with <span className="funded-gradient">400% capital provided by TradingNexus.</span>
+            to trade with <span className="funded-gradient">400% capital provided by TradeWithStraddly.</span>
           </p>
 
           <a className="funded-cta" href={ENROLL_URL}>
@@ -142,7 +142,7 @@ const FundedProgram: React.FC = () => {
           <div className="funded-card">
             <div className="funded-icon">💰</div>
             <h3>400% Capital Funding</h3>
-            <p>Selected traders receive access to trading capital provided by TradingNexus.</p>
+            <p>Selected traders receive access to trading capital provided by TradeWithStraddly.</p>
           </div>
 
           <div className="funded-card">
@@ -160,7 +160,7 @@ const FundedProgram: React.FC = () => {
           <div className="funded-card">
             <div className="funded-icon">🎓</div>
             <h3>Certification</h3>
-            <p>Participants completing the test will receive TradingNexus certification.</p>
+            <p>Participants completing the test will receive TradeWithStraddly certification.</p>
           </div>
         </section>
 
@@ -168,7 +168,7 @@ const FundedProgram: React.FC = () => {
           <div className="funded-process-heading">
             <span className="funded-process-kicker">Selection Process</span>
             <h2>
-              The Path To <span className="funded-gradient">TradingNexus Funding</span>
+              The Path To <span className="funded-gradient">TradeWithStraddly Funding</span>
             </h2>
             <p>
               A clearer visual journey from free course registration to final funding shortlist.
@@ -238,7 +238,7 @@ const FundedProgram: React.FC = () => {
           </a>
         </section>
 
-        <footer className="funded-footer">TradingNexus © 2026</footer>
+        <footer className="funded-footer">TradeWithStraddly © 2026</footer>
       </div>
     </div>
   );

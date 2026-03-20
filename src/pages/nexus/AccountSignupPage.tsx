@@ -3,6 +3,7 @@ import { CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../../styles/nexus/NeoTheme.css';
 import { usePortalLogo } from '../../hooks/usePortalLogo';
+import { apiService } from '../../services/apiService';
 
 const REQUIRED_KEYS = [
   'first_name',
@@ -79,8 +80,7 @@ const AccountSignupPage: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const apiBaseRaw = (import.meta.env.VITE_API_URL as string | undefined) || '/api/v2';
-  const apiBase = apiBaseRaw.endsWith('/') ? apiBaseRaw.slice(0, -1) : apiBaseRaw;
+  const apiBase = String(apiService.baseURL || '/api/v2').replace(/\/+$/, '');
 
   const mandatoryComplete = useMemo(() => {
     return REQUIRED_KEYS.every((k) => {
@@ -321,8 +321,8 @@ const AccountSignupPage: React.FC = () => {
       <div className="rules-container">
         <nav className="rules-nav">
           <div className="rules-logo-wrap">
-            {logo ? <img src={logo} alt="TradingNexus" className="rules-logo-img" /> : null}
-            <div className="rules-logo">TradingNexus</div>
+            {logo ? <img src={logo} alt="TradeWithStraddly" className="rules-logo-img" /> : null}
+            <div className="rules-logo">TradeWithStraddly</div>
           </div>
           <div className="rules-nav-links">
             <Link to="/">Home</Link>
@@ -334,7 +334,7 @@ const AccountSignupPage: React.FC = () => {
         <section className="rules-hero signup-hero">
           <div className="signup-hero-title">
             <h1>Account <span className="rules-gradient">Signup</span></h1>
-            {logo ? <img src={logo} alt="TradingNexus logo" className="signup-hero-logo" /> : null}
+            {logo ? <img src={logo} alt="TradeWithStraddly logo" className="signup-hero-logo" /> : null}
           </div>
           <p>Fields marked with * are mandatory. Uploads must be image files up to 1 MB.</p>
         </section>

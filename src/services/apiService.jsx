@@ -8,7 +8,14 @@
  */
 
 const rawEnvBase = (import.meta.env.VITE_API_URL || '').trim();
-const BASE_URL = rawEnvBase ? rawEnvBase.replace(/\/+$/, '') : '/api/v2';
+const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
+const isStraddlyHost =
+  hostname === 'www.tradewithstraddly.com' ||
+  hostname === 'tradewithstraddly.com' ||
+  hostname.endsWith('.tradewithstraddly.com');
+const BASE_URL = isStraddlyHost
+  ? '/api/v2'
+  : (rawEnvBase ? rawEnvBase.replace(/\/+$/, '') : '/api/v2');
 
 class ApiService {
   constructor() {

@@ -104,8 +104,8 @@ const Login = () => {
       <div className="rules-container">
         <nav className="rules-nav">
           <div className="rules-logo-wrap">
-            {logo ? <img src={logo} alt="TradingNexus" className="rules-logo-img" /> : null}
-            <div className="rules-logo">TradingNexus</div>
+            {logo ? <img src={logo} alt="TradeWithStraddly" className="rules-logo-img" /> : null}
+            <div className="rules-logo">TradeWithStraddly</div>
           </div>
           <div className="rules-nav-links">
             <Link to="/">Home</Link>

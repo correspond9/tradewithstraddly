@@ -14,8 +14,8 @@ const Rules: React.FC = () => {
     return Number.isFinite(numeric) ? numeric : 0;
   }, [walletPayInInput]);
 
-  const tradingNexusCapital = walletPayIn * 4;
-  const marginAllotedForTrading = walletPayIn + tradingNexusCapital;
+  const straddlyCapital = walletPayIn * 4;
+  const marginAllotedForTrading = walletPayIn + straddlyCapital;
 
   const formatInr = (value: number) => `₹${value.toLocaleString('en-IN')}`;
 
@@ -30,8 +30,8 @@ const Rules: React.FC = () => {
 
         <nav className="rules-nav">
           <div className="rules-logo-wrap">
-            {logo ? <img src={logo} alt="TradingNexus" className="rules-logo-img" /> : null}
-            <div className="rules-logo">TradingNexus</div>
+            {logo ? <img src={logo} alt="TradeWithStraddly" className="rules-logo-img" /> : null}
+            <div className="rules-logo">TradeWithStraddly</div>
           </div>
           <div className="rules-nav-links">
             <a href="/">Home</a>
@@ -47,7 +47,7 @@ const Rules: React.FC = () => {
           </div>
           <h1>Trading Rules &amp; <span className="rules-gradient">Risk Framework</span></h1>
           <p>
-            TradingNexus provides additional trading capital to traders while maintaining
+            TradeWithStraddly provides additional trading capital to traders while maintaining
             strict risk controls to ensure stability of the system. The following framework
             governs how funded trading accounts operate.
           </p>
@@ -58,7 +58,7 @@ const Rules: React.FC = () => {
           <section className="rules-card">
             <h2><Wallet className="rules-section-icon" /> Capital Allocation Model</h2>
             <p className="rules-muted">
-              TradingNexus enables traders to trade with higher capital by allocating
+              TradeWithStraddly enables traders to trade with higher capital by allocating
               additional funds to their account.
             </p>
             <div className="rules-allocation-grid">
@@ -82,10 +82,10 @@ const Rules: React.FC = () => {
               <div className="rules-alloc-box">
                 <div className="rules-alloc-title-wrap">
                   <span className="rules-icon rules-icon-boost" aria-hidden="true">⚡</span>
-                  <h4>TradingNexus Capital</h4>
+                  <h4>TradeWithStraddly Capital</h4>
                 </div>
                 <p className="rules-ratio">1:5 Capital Structure</p>
-                <p className="rules-amount">{formatInr(tradingNexusCapital)}</p>
+                <p className="rules-amount">{formatInr(straddlyCapital)}</p>
               </div>
               <div className="rules-alloc-box rules-alloc-highlight">
                 <div className="rules-alloc-title-wrap">
@@ -104,20 +104,20 @@ const Rules: React.FC = () => {
               <h2>Capital Acceleration for High-Conviction Traders</h2>
             </div>
             <p className="rules-muted rules-marketing-copy">
-              At TradingNexus, we identify disciplined and high-potential participants through
+              At TradeWithStraddly, we identify disciplined and high-potential participants through
               structured evaluation. Eligible selected traders can unlock up to <strong>400% additional capital</strong>,
               creating the opportunity to scale strategy execution with stronger position size,
               better compounding potential, and institutional-grade growth support.
             </p>
             <p className="rules-marketing-hook">
-              Trade with precision. Qualify with consistency. Scale with TradingNexus capital.
+              Trade with precision. Qualify with consistency. Scale with TradeWithStraddly capital.
             </p>
           </section>
 
           <section className="rules-card">
             <h2><ShieldCheck className="rules-section-icon" /> Risk Monitoring (RMS)</h2>
             <p className="rules-muted">
-              TradingNexus maintains a dedicated Risk Management System (RMS) team that
+              TradeWithStraddly maintains a dedicated Risk Management System (RMS) team that
               continuously monitors trading activity. The objective of RMS monitoring is
               to maintain trading discipline and ensure that risk exposure remains within
               acceptable limits.
@@ -155,7 +155,7 @@ const Rules: React.FC = () => {
           <section className="rules-card">
             <h2><TrendingUp className="rules-section-icon" /> Profit Policy</h2>
             <p className="rules-muted">
-              TradingNexus does not operate on a profit sharing model. Traders retain
+              TradeWithStraddly does not operate on a profit sharing model. Traders retain
               the profits generated through their trading activities.
             </p>
           </section>
@@ -163,7 +163,7 @@ const Rules: React.FC = () => {
           <section className="rules-card">
             <h2><HandCoins className="rules-section-icon" /> Platform Charges</h2>
             <p className="rules-muted">
-              TradingNexus charges a platform fee of{' '}
+              TradeWithStraddly charges a platform fee of{' '}
               <strong>0.005 × turnover</strong> for facilitating trading on the system.
             </p>
             <p className="rules-muted" style={{ marginTop: '16px' }}>
@@ -181,7 +181,7 @@ const Rules: React.FC = () => {
           </a>
         </section>
 
-        <footer className="rules-footer">TradingNexus © {new Date().getFullYear()}</footer>
+        <footer className="rules-footer">TradeWithStraddly © {new Date().getFullYear()}</footer>
       </div>
     </div>
   );
