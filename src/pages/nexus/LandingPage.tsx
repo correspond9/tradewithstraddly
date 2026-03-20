@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
     Activity,
     ArrowRight,
@@ -125,6 +125,82 @@ const insightCards: InsightCard[] = [
         accent: 'var(--neo-color-green)',
     },
 ];
+
+const TradingViewSymbolOverview: React.FC = () => {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        container.innerHTML = '';
+        const script = document.createElement('script');
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        script.innerHTML = JSON.stringify({
+            lineWidth: 2,
+            lineType: 0,
+            chartType: 'candlesticks',
+            fontColor: 'rgb(106, 109, 120)',
+            gridLineColor: 'rgba(46, 46, 46, 0.06)',
+            volumeUpColor: 'rgba(34, 171, 148, 0.5)',
+            volumeDownColor: 'rgba(247, 82, 95, 0.5)',
+            backgroundColor: '#ffffff',
+            widgetFontColor: '#0F0F0F',
+            upColor: '#22ab94',
+            downColor: '#f7525f',
+            borderUpColor: '#22ab94',
+            borderDownColor: '#f7525f',
+            wickUpColor: '#22ab94',
+            wickDownColor: '#f7525f',
+            colorTheme: 'light',
+            isTransparent: false,
+            locale: 'en',
+            chartOnly: false,
+            scalePosition: 'right',
+            scaleMode: 'Normal',
+            fontFamily: '-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif',
+            valuesTracking: '1',
+            changeMode: 'price-and-percent',
+            symbols: [
+                ['NSE:NIFTY|1D'],
+                ['NSE:BANKNIFTY|1D'],
+                ['BSE:SENSEX|1D'],
+                ['MCX:GOLD1!|1D'],
+                ['MCX:SILVER1!|1D'],
+                ['NSE:RELIANCE|1D'],
+                ['NSE:HDFCBANK|1D'],
+            ],
+            dateRanges: ['1d|1', '1m|30', '3m|60', '12m|1D', '60m|1W', 'all|1M'],
+            fontSize: '10',
+            headerFontSize: 'medium',
+            autosize: true,
+            timeHoursFormat: '12-hours',
+            dateFormat: "dd MMM 'yy",
+            width: '100%',
+            height: '100%',
+            noTimeScale: false,
+            hideDateRanges: false,
+            hideMarketStatus: false,
+            hideSymbolLogo: false,
+        });
+
+        container.appendChild(script);
+
+        return () => {
+            container.innerHTML = '';
+        };
+    }, []);
+
+    return (
+        <div className="tv-shell">
+            <div className="tradingview-widget-container" ref={containerRef}>
+                <div className="tradingview-widget-container__widget"></div>
+            </div>
+        </div>
+    );
+};
 
 const LandingPage: React.FC = () => {
     const logo = usePortalLogo();
@@ -283,21 +359,11 @@ const LandingPage: React.FC = () => {
                                     <div className="pulse-chart-header">
                                         <div>
                                             <p className="pulse-overline">Index Snapshot</p>
-                                            <h4 className="pulse-chart-title">NIFTY Intraday Structure</h4>
+                                            <h4 className="pulse-chart-title">Live Indices Overview</h4>
                                         </div>
                                         <div className="pulse-mini-badge positive">Trend Intact</div>
                                     </div>
-                                    <div className="pulse-chart-grid">
-                                        <div className="pulse-grid-overlay"></div>
-                                        <div className="pulse-candle-row">
-                                            {pulseCandles.map((height, idx) => (
-                                                <div key={idx} className="pulse-candle-wrap">
-                                                    <span className={`pulse-candle ${idx % 3 === 1 ? 'negative' : 'positive'}`} style={{ height: `${height}px` }}></span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="pulse-trend-line"></div>
-                                    </div>
+                                    <TradingViewSymbolOverview />
                                 </div>
 
                                 <div className="pulse-side-stack">
@@ -774,6 +840,26 @@ const LandingPage: React.FC = () => {
                     clip-path: polygon(0% 72%, 12% 66%, 22% 69%, 34% 52%, 46% 58%, 57% 42%, 68% 48%, 79% 24%, 91% 31%, 100% 12%, 100% 100%, 0% 100%);
                 }
 
+                .tv-shell {
+                    margin-top: 16px;
+                    height: 360px;
+                    border-radius: 22px;
+                    overflow: hidden;
+                    border: 1px solid rgba(168, 181, 210, 0.26);
+                    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(228, 236, 250, 0.9));
+                    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset -1px -1px 0 rgba(190, 206, 236, 0.45);
+                }
+
+                .tradingview-widget-container {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .tradingview-widget-container__widget {
+                    width: 100%;
+                    height: 100%;
+                }
+
                 .pulse-side-stack {
                     display: flex;
                     flex-direction: column;
@@ -870,6 +956,10 @@ const LandingPage: React.FC = () => {
 
                     .pulse-chart-grid {
                         height: 220px;
+                    }
+
+                    .tv-shell {
+                        height: 420px;
                     }
                 }
             `}</style>
