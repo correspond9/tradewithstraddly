@@ -116,7 +116,7 @@ const Login = () => {
 
         <section className="rules-hero signin-hero">
           <h1>
-            Welcome to the Nexus
+            Welcome to the Straddly
             <br />
             <span className="rules-gradient">LOGIN</span>
           </h1>
@@ -274,7 +274,7 @@ const Login = () => {
         </div>
 
         <div className="signin-register-note">
-          Become a part of nexus, <Link to="/sign-up">register here</Link>
+          Become a part of Straddly, <Link to="/sign-up">register here</Link>
         </div>
 
         <style>{`

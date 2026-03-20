@@ -154,8 +154,8 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div>
                     <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-[var(--neo-text-muted)]">Email</p>
-                    <a href="mailto:info@tradingnexus.pro" className="text-base font-bold text-[var(--neo-text-main)] transition-colors hover:text-blue-500">
-                      info@tradingnexus.pro
+                    <a href="mailto:info@tradewithstraddly.pro" className="text-base font-bold text-[var(--neo-text-main)] transition-colors hover:text-blue-500">
+                      info@tradewithstraddly.pro
                     </a>
                   </div>
                 </div>
